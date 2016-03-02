@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Live Video Streaming</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <style>
+    #clientID, #stream, #feedback-messages {
+      clear: both;
+    }
+    #remote-video-stream {
+      max-width: 300px;
+    }
+    #my-local-stream {
+      max-width: 300px;
+    }
+    </style>
+
+    <style type="text/css">
+    .bs-example{
+      margin: 20px;
+    }
+    .indent{
+      text-indent: 50px;
+    }
+    </style>
+    <style>
+      body {
+        background-image: url("wov.png");
+      }
+    </style>
+  </head>
+
+  <body>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <div class="bs-example">
+    <h1>Live Video Streaming</h1>
+
+  </div>
+    <div id="clientID" class="indent">
+      <h4>
+        Connect as:
+        <input type="text" id="client-id" size="8" class="bs-example">
+        <button id="connect" class="btn btn-success">Connect</button>
+      </h4>
+    </div>
+
+    <div id="stream" data-active="false" class="indent">
+     <h4>
+        Stream to:
+        <input type="select" id="stream-id" size="8" class="bs-example" >
+        </input>
+        <button id="stream-button" class="btn btn-success">Stream</button>
+      </h4>
+
+      <div id="feedback-messages">
+      </div>
+      <hr>
+      <hr>
+	<h3>My Video:</strong></h3>
+      <video id="my-local-stream" autoplay></video>
+    </div>
+<hr><hr>
+
+      <h3>Stream:</h3>
+      <video id="remote-video-stream" autoplay></video>
+
+      <hr>
+
+    <hr>
+
+    <script src="peer.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

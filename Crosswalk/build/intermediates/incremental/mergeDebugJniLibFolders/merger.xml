@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="F:\VideoStreamingApp\Crosswalk\src\main\jniLibs"><file name="x86_64/libxwalkcore.so" path="F:\VideoStreamingApp\Crosswalk\src\main\jniLibs\x86_64\libxwalkcore.so"/><file name="x86_64/libxwalkdummy.so" path="F:\VideoStreamingApp\Crosswalk\src\main\jniLibs\x86_64\libxwalkdummy.so"/></source></dataSet><dataSet config="debug"><source path="F:\VideoStreamingApp\Crosswalk\src\debug\jniLibs"/></dataSet></merger>

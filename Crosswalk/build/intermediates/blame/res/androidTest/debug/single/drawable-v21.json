@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "F:\\VideoStreamingApp\\Crosswalk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21\\button_compat.xml",
+        "source": "F:\\VideoStreamingApp\\Crosswalk\\build\\intermediates\\bundles\\debug\\res\\drawable-v21\\button_compat.xml"
+    },
+    {
+        "merged": "C:\\Users\\divya\\Documents\\XWalkEmbed\\Crosswalk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21\\button_compat.xml",
+        "source": "C:\\Users\\divya\\Documents\\XWalkEmbed\\Crosswalk\\build\\intermediates\\bundles\\debug\\res\\drawable-v21\\button_compat.xml"
+    },
+    {
+        "merged": "C:\\Users\\divya\\Documents\\crosswalk-webview-18.48.477.6-x86_641\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21\\button_borderless_compat.xml",
+        "source": "C:\\Users\\divya\\Documents\\crosswalk-webview-18.48.477.6-x86_641\\app\\build\\intermediates\\bundles\\debug\\res\\drawable-v21\\button_borderless_compat.xml"
+    },
+    {
+        "merged": "F:\\XWalkEmbed\\Crosswalk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21\\button_compat.xml",
+        "source": "F:\\XWalkEmbed\\Crosswalk\\build\\intermediates\\bundles\\debug\\res\\drawable-v21\\button_compat.xml"
+    },
+    {
+        "merged": "F:\\XWalkEmbed\\Crosswalk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21\\button_borderless_compat.xml",
+        "source": "F:\\XWalkEmbed\\Crosswalk\\build\\intermediates\\bundles\\debug\\res\\drawable-v21\\button_borderless_compat.xml"
+    },
+    {
+        "merged": "F:\\VideoStreamingApp\\Crosswalk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21\\button_borderless_compat.xml",
+        "source": "F:\\VideoStreamingApp\\Crosswalk\\build\\intermediates\\bundles\\debug\\res\\drawable-v21\\button_borderless_compat.xml"
+    },
+    {
+        "merged": "C:\\Users\\divya\\Documents\\crosswalk-webview-18.48.477.6-x86_641\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21\\button_compat.xml",
+        "source": "C:\\Users\\divya\\Documents\\crosswalk-webview-18.48.477.6-x86_641\\app\\build\\intermediates\\bundles\\debug\\res\\drawable-v21\\button_compat.xml"
+    },
+    {
+        "merged": "C:\\Users\\divya\\Documents\\XWalkEmbed\\Crosswalk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21\\button_borderless_compat.xml",
+        "source": "C:\\Users\\divya\\Documents\\XWalkEmbed\\Crosswalk\\build\\intermediates\\bundles\\debug\\res\\drawable-v21\\button_borderless_compat.xml"
+    }
+]
