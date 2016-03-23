@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Live Video Streaming</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <style>
+        #clientID, #stream, #messages {
+            clear: both;
+        }
+        #remote-video-stream {
+            max-width: 300px;
+        }
+            #my-local-stream {
+            max-width: 300px;
+        }
+    </style>
+
+    <style type="text/css">
+        .bodydata{
+            margin: 20px;
+            color:white;
+            text-align: center
+        }
+
+        .bodydata1{
+        margin: 20px;
+        color:black;
+        text-align: center
+        }
+        .indent{
+            color:white;
+            text-align: center
+        }
+    </style>
+	
+		<style> 
+@font-face {
+   font-family: Anders;
+   src: url('Anders.ttf');
+  
+   font-stretch:ultra-expanded
+}
+
+
+.bodystate{
+   color:White;
+   font-weight: bold;
+   text-align:center
+
+}
+
+h6 {
+   font-family: Anders;
+   font-size: 300%;
+}
+</style>
+	
+	
+    <style>
+        body {
+            background-image: url("bg-1920x1080.jpg");
+        }
+    </style>
+</head>
+
+<body>
+<script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+
+<h6 class="bodystate">
+	LIVE VIDEO STREAMING 
+</h6>
+
+
+
+<div class="bodydata" id="status"></div>
+
+<div id="clientID" class="indent">
+    <h4>
+        Connect as:
+        <input type="text" id="client-id" size="8" class="bodydata1" disabled>
+        <button id="connect" class="btn btn-success">Connect</button>
+    </h4>
+</div>
+
+<div class="bodydata" id="friends"></div>
+
+<div id="stream" data-active="false" class="indent">
+    <h4>
+        Stream to:
+        <input type="select" id="stream-id" size="8" class="bodydata1">
+        </input>
+        <button id="stream-button" class="btn btn-success">Stream</button>
+    </h4>
+
+    <div id="messages"></div>
+
+
+    <h3>My Video:</strong></h3>
+    <video height="300" id="my-local-stream" autoplay></video>
+
+
+<h3 style="color:white">Stream:</h3>
+<video height="300" id="remote-video-stream" autoplay></video>
+
+</div>
+
+
+<script>
+function getParameters(parameter) {
+    var urlhref = window.location.href;
+    var query = urlhref.split('?');
+    console.log(query);
+    var param = query[1].split('&');
+    console.log(param);
+    console.log(param.length);
+        for(i = 0; i < param.length; i++) {
+            var values = param[i].split('=');
+            console.log(values);
+            if(values[0] == parameter) {
+                var name = values[1].replace('%20', ' ');
+                console.log(name);
+                return name;
+            }
+        }
+    }
+    document.getElementById('client-id').value = getParameters('name');
+</script>
+<script>
+    var urlhref2 = window.location.href;
+    var query2 = urlhref2.split('?');
+    console.log(query2);
+    var param2 = query2[1].split('&');
+    console.log(param2);
+    console.log(param2.length);
+    for(i = 0; i < param2.length; i++) {
+        var values2 = param2[i].split('=');
+        console.log(values2);
+        if(values2[0] == 'friends') {
+            document.getElementById('friends').innerHTML = 'Your friends using this app: ';
+            var user_friends = values2[1].split('$');
+            console.log(user_friends);
+            for(j = 0; j < user_friends.length; j++) {
+                console.log(user_friends[j]);
+                var friendlistdiv = document.createElement('div');
+                friendlistdiv.id = 'friend' + j;
+                friendlistdiv.class = 'bodydata';
+                document.getElementById('friends').appendChild(friendlistdiv);
+                document.getElementById('friend'+j).innerHTML = user_friends[j].replace('%20', ' ');
+            }
+        }
+    }
+</script>
+
+<script src="peer.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

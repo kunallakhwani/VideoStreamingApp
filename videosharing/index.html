@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Live Video Streaming</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <style>
+    #clientID, #stream, #messages {
+		clear: both;
+    }
+    #video-stream {
+		object-fit: initial;
+		width: 400px;
+		height: 300px;
+    }
+    </style>
+    <style type="text/css">
+      .bodydata{
+        margin: 20px;
+		text-align: center
+      }
+      .indent{
+	    color:white;
+        text-align: center;
+        font-size:40px
+    
+      }
+
+    .indent1{
+   text-align: center;
+    color:White;
+    font-size:20px
+}
+    </style>
+	
+	<style> 
+@font-face {
+   font-family: Anders;
+   src: url('Anders.ttf');
+  
+   font-stretch:ultra-expanded
+}
+
+
+.bodystate{
+   color:White;
+   text-align:center;
+
+}
+
+.bodystate1{
+   color:Black;
+   font-weight: bold;
+   text-align:center
+
+}
+
+
+.bodystate2{
+   color:White;
+   text-align:center;
+  font-size:20px
+
+}
+
+
+
+.videoContainer 
+{
+    height:100%;
+    width:1000%;
+   
+}
+
+h6 {
+   font-family: Anders;
+   font-size: 500%;
+}
+</style>
+    <style>
+      body {
+        background-image: url("bg.jpg");
+      }
+    </style>
+</head>
+  
+<body>
+<script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+
+<script>
+window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1512459919062512',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+};
+
+(function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+   
+function checkLoginState() {
+	FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+	});
+}
+  
+function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    
+    if (response.status === 'connected') {
+		loginUser();
+    } else if (response.status === 'not_authorized') {
+		document.getElementById('status').innerHTML = 'Please log into this app.';
+    } else {
+		document.getElementById('status').innerHTML = 'Please log into Facebook.';
+    }
+}
+  
+function loginUser() {
+    FB.api('/me', function(response) {
+		console.log('Logged in: ' + response.name);
+		document.getElementById('status').innerHTML = 'Logged in as: ' + response.name + '!';
+		document.getElementById('client-id').value = response.name;
+    });
+	FB.api('/me/friends', function(response) {
+		if (response && !response.error) {
+			console.log('Friends: ' + response.data[0].name);
+			document.getElementById('friends').innerHTML = 'Your friends using this app: ';
+			for(var i = 0; i <response.data.length; i++) {
+				var friendlistdiv = document.createElement('div');
+                friendlistdiv.id = 'friend' + i;
+                friendlistdiv.class = 'bodydata';
+                document.getElementById('friends').appendChild(friendlistdiv);
+				document.getElementById('friend'+i).innerHTML = response.data[i].name;
+			}
+		}
+    });
+  }
+</script>
+
+<h6 class="bodystate">
+	LIVE VIDEO STREAMING 
+</h6>
+
+
+<div class="bodydata" id=login>
+<fb:login-button scope="public_profile,user_friends" onlogin="checkLoginState();" data-size="large" data-auto-logout-link="true"></fb:login-button>
+</div>
+
+<div class="bodystate2" id="status"></div>
+
+<div id="clientID" class="indent">
+	<h3>
+		Connect as:
+		<input type="text" id="client-id" size="15" class="bodystate1" disabled>
+        <button id="connect" class="btn btn-success">Connect</button>
+	</h3>
+</div>
+
+<div class="bodystate2" id="friends"></div>
+
+<div id="stream" data-active="false">
+	
+	<div class="indent">
+		<h2>Video Stream:</h2>
+	<video class="videoContainer" id="video-stream" autoplay ></video>
+	</div>
+
+<div id="messages" class="indent1"></div>
+		
+<script src="peer.js"></script>
+<script src="main.js"></script>
+
+</div>
+</body>
+</html>
